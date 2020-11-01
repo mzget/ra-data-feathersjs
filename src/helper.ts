@@ -1,5 +1,6 @@
-const debug = console.info;
-export const dbg = (...msgs) => debug("ra-data-feathers:rest-client", ...msgs);
+import debug from "debug";
+
+export const dbg = debug("ra-data-feathers:rest-client");
 export const queryOperators = [
   "$gt",
   "$gte",

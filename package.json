@@ -19,6 +19,7 @@
   "homepage": "https://github.com/mzget/react-admin-v3-data-feathersjs#readme",
   "dependencies": {
     "@feathersjs/feathers": "4.5.9",
+    "debug": "4.2.0",
     "object-diff": "0.0.4",
     "react-admin": "3.9.5",
     "typescript": "4.0.5"

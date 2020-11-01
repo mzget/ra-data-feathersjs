@@ -173,7 +173,7 @@ const update = (client: Application, options: ClientOptions) => (
 };
 const updateMany = (client: Application, options: ClientOptions) => (
   resource: string,
-  params: UpdateManyParams & Pick<UpdateParams, "previousData">
+  params: (UpdateManyParams & Pick<UpdateParams, "previousData">) | any
 ): Promise<UpdateManyResult> => {
   const usePatch = !!options.usePatch;
   const { query, service, idKey } = initFunction({
@@ -189,7 +189,9 @@ const updateMany = (client: Application, options: ClientOptions) => (
       : params.data;
     return Promise.all(
       params.ids.map((id) => service.patch(id, dataPatch))
-    ).then((response) => ({ data: response.map((record) => record[idKey]) }));
+    ).then((response: any[]) => ({
+      data: response.map((record: any) => record[idKey]),
+    }));
   }
   const dataUpdate =
     idKey !== defaultIdKey
@@ -197,7 +199,9 @@ const updateMany = (client: Application, options: ClientOptions) => (
       : params.data;
   return Promise.all(
     params.ids.map((id) => service.update(id, dataUpdate))
-  ).then((response) => ({ data: response.map((record) => record[idKey]) }));
+  ).then((response: any[]) => ({
+    data: response.map((record) => record[idKey]),
+  }));
 };
 const remove = (client: Application, options: ClientOptions) => (
   resource: string,

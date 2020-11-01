@@ -1,5 +1,5 @@
 import { Application } from "@feathersjs/feathers";
-import { CreateParams, CreateResult, DeleteManyParams, DeleteManyResult, DeleteParams, DeleteResult, GetListParams, GetListResult, GetManyParams, GetManyReferenceParams, GetManyReferenceResult, GetManyResult, GetOneParams, GetOneResult, UpdateManyParams, UpdateManyResult, UpdateParams, UpdateResult } from "react-admin";
+import { CreateParams, CreateResult, DeleteManyParams, DeleteManyResult, DeleteParams, DeleteResult, GetListParams, GetListResult, GetManyParams, GetManyReferenceParams, GetManyReferenceResult, GetManyResult, GetOneParams, GetOneResult, UpdateManyResult, UpdateParams, UpdateResult } from "react-admin";
 declare type ClientOptions = {
     id?: string;
     usePatch?: boolean;
@@ -21,7 +21,7 @@ declare function restClient(client: Application, options?: ClientOptions): {
     getManyReference: (resource: string, params: GetManyReferenceParams) => Promise<GetManyReferenceResult<any>>;
     create: (resource: string, params: CreateParams) => Promise<CreateResult<any>>;
     update: (resource: string, params: UpdateParams) => Promise<UpdateResult<any>>;
-    updateMany: (resource: string, params: UpdateManyParams & Pick<UpdateParams, "previousData">) => Promise<UpdateManyResult>;
+    updateMany: (resource: string, params: any) => Promise<UpdateManyResult>;
     delete: (resource: string, params: DeleteParams) => Promise<DeleteResult<any>>;
     deleteMany: (resource: string, params: DeleteManyParams) => Promise<DeleteManyResult>;
 };
