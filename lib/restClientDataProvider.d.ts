@@ -1,4 +1,3 @@
-import { Application } from "@feathersjs/feathers";
 import { CreateParams, CreateResult, DeleteManyParams, DeleteManyResult, DeleteParams, DeleteResult, GetListParams, GetListResult, GetManyParams, GetManyReferenceParams, GetManyReferenceResult, GetManyResult, GetOneParams, GetOneResult, UpdateManyResult, UpdateParams, UpdateResult } from "react-admin";
 declare type ClientOptions = {
     id?: string;
@@ -14,7 +13,7 @@ declare type ClientOptions = {
  * @param client
  * @param options
  */
-declare function restClient(client: Application, options?: ClientOptions): {
+declare function restClient(client: any, options?: ClientOptions): {
     getList: (resource: string, params: GetListParams) => Promise<GetListResult<any>>;
     getOne: (resource: string, params: GetOneParams) => Promise<GetOneResult<any>>;
     getMany: (resource: string, params: GetManyParams) => Promise<GetManyResult<any>>;

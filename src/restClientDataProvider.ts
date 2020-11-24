@@ -241,7 +241,7 @@ const removeMany = (client: Application, options: ClientOptions) => (
   }
   return Promise.all(
     params.ids.map((id) => service.remove(id))
-  ).then((response) => ({ data: response.map((record) => record[idKey]) }));
+  ).then((response:Array<any>) => ({ data: response.map((record) => record[idKey]) }));
 };
 
 /**
@@ -249,7 +249,7 @@ const removeMany = (client: Application, options: ClientOptions) => (
  * @param client
  * @param options
  */
-function restClient(client: Application, options: ClientOptions = {}) {
+function restClient(client, options: ClientOptions = {}) {
   return {
     getList: getList(client, options),
     getOne: getOne(client, options),
