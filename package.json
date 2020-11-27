@@ -1,6 +1,6 @@
 {
   "name": "react-admin-v3-data-feathersjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React-admin-v3 data provider for feathers.js framework",
   "main": "lib/index.js",
   "scripts": {

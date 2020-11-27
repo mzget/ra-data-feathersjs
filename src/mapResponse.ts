@@ -1,9 +1,10 @@
+import { GetListResult } from 'react-admin';
 import { defaultIdKey } from './helper';
 
 /**
  * Map Response
  */
-export function mapGetResponse(response, idKey) {
+export function mapGetResponse(response, idKey): GetListResult<any> {
     let res;
     // support paginated and non paginated services
     if (!response.data) {
@@ -16,8 +17,10 @@ export function mapGetResponse(response, idKey) {
         const item = _item;
         if (idKey !== defaultIdKey) {
             item.id = _item[idKey];
+            delete _item[idKey]
         }
-        return _item;
+        return item;
     });
-    return { ...response, validUntil: undefined };
+
+    return { ...response, validUntil: undefined } ;
 }
